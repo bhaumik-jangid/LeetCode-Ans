@@ -4,16 +4,11 @@ public:
         int l = 0, r = nums.size() - 1;
 
         while(l < r) {
-            if(nums[l] + nums[r] == target) {
-                return {l + 1, r + 1};
-            } else if (nums[l] + nums[r] > target) {
-                r--;
-            } else {
-                l++;
-            }
+            int sum = nums[l] + nums[r];
+            if(sum == target) return {l + 1, r + 1};
+            else if (sum > target) r--;
+            else l++;
         }
         return {l + 1, r + 1};
     }
 };
-
-// 0 1 2 3 4 5    6
